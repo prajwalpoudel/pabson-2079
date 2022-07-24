@@ -1,6 +1,6 @@
 @extends('front.layouts.master')
 @section('title')
-    Hamro School | School | Detail
+    PABSON . ACADEMY | School | Detail
 @endsection
 @section('content')
     <!-- ============================ Course Header Info Start================================== -->

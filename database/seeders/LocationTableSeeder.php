@@ -516,7 +516,7 @@ class LocationTableSeeder extends Seeder
             ],
             //  Province 2
             [
-                'name' => 'Province 2',
+                'name' => 'Madhesh Province',
                 'districts' => [
                     [
                         'name' => 'Bara',
@@ -973,7 +973,7 @@ class LocationTableSeeder extends Seeder
             ],
             //  Province 3
             [
-                'name' => 'Province 3',
+                'name' => 'Bagmati Province',
                 'districts' => [
                     [
                         'name' => 'Sindhuli',
@@ -1401,7 +1401,7 @@ class LocationTableSeeder extends Seeder
             ],
             //  Province 4
             [
-                'name' => 'Province 4',
+                'name' => 'Gandaki Province',
                 'districts' => [
                     [
                         'name' => 'Baglung',
@@ -1717,7 +1717,7 @@ class LocationTableSeeder extends Seeder
             ],
             //  Province 5
             [
-                'name' => 'Province 5',
+                'name' => 'Lumbini Province',
                 'districts' => [
                     [
                         'name' => 'Arghakhanchi',
@@ -2107,7 +2107,7 @@ class LocationTableSeeder extends Seeder
             ],
             //  Province 6
             [
-                'name' => 'Province 6',
+                'name' => 'Karnali Province',
                 'districts' => [
                     [
                         'name' => 'Western Rukum',
@@ -2403,7 +2403,7 @@ class LocationTableSeeder extends Seeder
             ],
             //  Province 7
             [
-                'name' => 'Province 7',
+                'name' => 'Sudur Paschim Province',
                 'districts' => [
                     [
                         'name' => 'Achham',
