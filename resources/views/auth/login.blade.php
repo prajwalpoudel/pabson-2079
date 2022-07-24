@@ -1,6 +1,6 @@
 @extends('front.layouts.master')
 @section('title')
-    Hamro School | Login
+    PABSON . ACADEMY | Login
 @endsection
 @section('content')
     <section>
@@ -71,6 +71,9 @@
 
             </div>
 
+        </div>
+        <div class="text-center">
+            <p class="mt-2">Haven't Any Account? <a href="{{ route('auth.register.school') }}" class="link">Click here</a></p>
         </div>
     </section>
 @endsection

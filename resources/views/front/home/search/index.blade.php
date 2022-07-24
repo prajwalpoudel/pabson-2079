@@ -1,6 +1,6 @@
 @extends('front.layouts.master')
 @section('title')
-    Hamro School | Home
+    PABSON . ACADEMY | Home
 @endsection
 @section('content')
     <section class="mt-1">

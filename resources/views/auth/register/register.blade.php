@@ -1,6 +1,6 @@
 @extends('front.layouts.master')
 @section('title')
-    Hamro School | Register
+    PABSON . ACADEMY | Register
 @endsection
 @section('content')
     <section>

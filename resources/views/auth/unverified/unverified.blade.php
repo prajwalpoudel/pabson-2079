@@ -1,6 +1,6 @@
 @extends('front.layouts.master')
 @section('title')
-    Hamro School | Unverified Account
+    PABSON . ACADEMY | Unverified Account
 @endsection
 @section('content')
     <section>
