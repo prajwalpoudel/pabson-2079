@@ -2,6 +2,7 @@
 @section('register')
     {!! Form::open(['route' => 'auth.register', 'method' => 'post']) !!}
     {!! Form::hidden('user[role_id]', \App\Constants\RoleConstant::SCHOOL_ID) !!}
+
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
@@ -15,8 +16,8 @@
 
         <div class="col-md-6">
             <div class="form-group">
-                {!! Form::label('email', 'Representative:') !!}
-                {!! Form::email('user[email]', null, ['class' => 'form-control', 'placeholder' => 'Representative']) !!}
+                {!! Form::label('email', 'Representative Email:') !!}
+                {!! Form::email('user[email]', null, ['class' => 'form-control', 'placeholder' => 'Representative Email']) !!}
 
                 @error('user.email')
                 <span style="color: red">{{ $message }}</span>
@@ -71,7 +72,7 @@
             <div class="form-group">
                 {!! Form::label('principal_name', "Principal's Name :") !!}
                 {!! Form::text('principal_name', null, ['class' => 'form-control', 'placeholder' => "Principal's Name"]) !!}
-                @error('name')
+                @error('principal_name')
                 <span style="color: red">{{ $message }}</span>
                 @enderror
             </div>
@@ -129,12 +130,12 @@
             </div>
         </div>
 
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="address">Address:</label>
-                <p class="form-control">Address</p>
-            </div>
-        </div>
+{{--        <div class="col-md-6">--}}
+{{--            <div class="form-group">--}}
+{{--                <label for="address">Address:</label>--}}
+{{--                <p class="form-control">Address</p>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
         <div class="col-md-6">
             <div class="form-group">

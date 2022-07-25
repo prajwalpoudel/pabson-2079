@@ -40,7 +40,7 @@
                             <div class="education_block_list_layout">
 
                                 <div class="education_block_thumb n-shadow">
-                                    <a href="{{ route('school.detail', encrypt($school->id)) }}"><img src="{{ getImageUrl($school->logo,'700x500') }}" class="img-fluid" alt=""></a>
+                                    <a href="{{ route('school.detail', encrypt($school->id)) }}"><img src="{{ getImageUrl($school->logo) }}" class="img-fluid" alt=""></a>
                                 </div>
 
                                 <div class="list_layout_ecucation_caption">

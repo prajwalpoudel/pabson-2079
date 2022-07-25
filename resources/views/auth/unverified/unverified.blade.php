@@ -15,7 +15,7 @@
 
                 <p>Dear {{frontUser('role_id') == \App\Constants\RoleConstant::SCHOOL_ID ? frontUser('school')->name : frontUser('full_name')}} ,</p>
                 <br>
-                <p>Thank you for registering into <strong>Hamro School.</strong></p>
+                <p>Thank you for registering into <strong>Pabson Academy.</strong></p>
                 <br>
                 <p>Your account is under <strong>verification</strong> process. We will email you about your account status. Please stay tuned with us.</p>
         </div>

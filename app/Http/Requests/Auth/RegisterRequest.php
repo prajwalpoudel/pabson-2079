@@ -25,7 +25,7 @@ class RegisterRequest extends FormRequest
      */
     public function rules()
     {
-        $role_id = $this->input('role_id');
+        $role_id = $this->input('user.role_id');
         $rules = [
             'user.email' => [
                 'required',
@@ -46,9 +46,6 @@ class RegisterRequest extends FormRequest
             $rules = array_merge(
                 $rules,
                 [
-                    'user.email' => [
-                        'nullable',
-                    ],
                     'name' => 'required',
                     'principal_name' => 'required',
                     'principal_email' => [
@@ -98,7 +95,7 @@ class RegisterRequest extends FormRequest
 
     public function messages()
     {
-        return [
+        $messages = [
             'user.first_name.required' => 'The first name field is required',
             'user.last_name.required' => 'The last name field is required',
             'user.email.required' => 'The email field is required',
@@ -111,7 +108,7 @@ class RegisterRequest extends FormRequest
             'user.password_confirmation.required' => 'The password confirmation field is required',
             'user.password.min' => 'The password field must be at least 8 characters',
             'user.profile.mimes' => 'Please select image file',
-            'principal_name.required' => 'The principal name field is required',
+            'principal_name.required' => "The principal's name field is required",
             'province_id.required' => 'The province field is required',
             'district_id.required' => 'The district field is required',
             'municipality_id.required' => 'The municipality field is required',
@@ -120,5 +117,19 @@ class RegisterRequest extends FormRequest
             'subject_id.required' => 'The subject field is required',
             'grade_id.required' => 'The grade field is required',
         ];
+        $role_id = $this->input('user.role_id');
+        if ($role_id == RoleConstant::SCHOOL_ID) {
+            $messages = array_merge(
+              $messages,
+              [
+                  'name.required' => 'The school name field is required',
+                  'user.email.required' => 'The representative email field is required',
+                  'user.email.unique' => 'The representative email field has already been taken',
+                  'user.email.email' => 'The representative email field must be valid email address',
+              ]
+            );
+        }
+
+        return $messages;
     }
 }
