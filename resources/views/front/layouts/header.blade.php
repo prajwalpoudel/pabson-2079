@@ -24,13 +24,33 @@
 {{--                    <li class="login_click light">--}}
 {{--                        <a href="#" data-toggle="modal" data-target="#login">Sign in</a>--}}
 {{--                    </li>--}}
-                    <li class="login_click light">
-                        <a href="{{ route('auth.login') }}">Sign in</a>
-                    </li>
-                    <!--								<li class="login_click">-->
-                    <!--&lt;!&ndash;									<a href="#" data-toggle="modal" data-target="#signup">Sign up</a>&ndash;&gt;-->
-                    <!--&lt;!&ndash;									<a href="https://www.hamro.school/register/school">Sign up</a>&ndash;&gt;-->
-                    <!--								</li>-->
+                    @if(\Illuminate\Support\Facades\Auth::guard('front')->check())
+                        <li class="login_click light">
+                            <a href="{{ route('auth.logout') }}"
+                               onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();"
+                            >Log Out</a>
+                        </li>
+                        <form id="logout-form" action="{{ route('auth.logout') }}" method="POST"
+                              style="display: none;">
+                            @csrf
+                        </form>
+                    @elseif(\Illuminate\Support\Facades\Auth::guard('admin')->check())
+                        <li class="login_click light">
+                            <a href="{{ route('admin.auth.logout') }}"
+                               onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();"
+                            >Log Out</a>
+                        </li>
+                        <form id="logout-form" action="{{ route('admin.auth.logout') }}" method="POST"
+                              style="display: none;">
+                            @csrf
+                        </form>
+                    @else
+                        <li class="login_click light">
+                            <a href="{{ route('auth.login') }}">Sign in</a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </nav>

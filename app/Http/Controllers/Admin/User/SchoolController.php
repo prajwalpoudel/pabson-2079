@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\User;
 
 use App\Constants\ImageSizeConstant;
 use App\Constants\RoleConstant;
+use App\Events\AccountVerified;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SchoolRequest;
 use App\Http\Services\Location\ProvinceService;
@@ -196,6 +197,9 @@ class SchoolController extends Controller
         if($userData)
         {
             $school->user()->update($userData);
+            if(isset($userData['is_verified'])) {
+                AccountVerified::dispatch($school->user, $userData['is_verified']);
+            }
         }
         DB::commit();
 
