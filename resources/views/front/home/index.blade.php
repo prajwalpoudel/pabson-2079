@@ -14,7 +14,13 @@
                         <h1 class="big-header-capt cl_2 mb-2 f_2">PABSON . ACADEMY</h1>
                         <p style="font-size: 20px">The Online School</p>
                         <div class="mt-4">
-                            <a href="{{ route('auth.register.school') }}" class="btn btn-modern dark">Register<span><i class="ti-arrow-right"></i></span></a>
+                            @if(\Illuminate\Support\Facades\Auth::guard('admin')->check())
+                                <a href="{{ route('admin.dashboard') }}" class="btn btn-modern dark">Dashboard<span><i class="ti-arrow-right"></i></span></a>
+                            @elseif(\Illuminate\Support\Facades\Auth::guard('front')->check())
+                                <a href="{{ route('auth.login') }}" class="btn btn-modern dark">Dashboard<span><i class="ti-arrow-right"></i></span></a>
+                            @else
+                                <a href="{{ route('auth.register.school') }}" class="btn btn-modern dark">Register<span><i class="ti-arrow-right"></i></span></a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -943,40 +949,11 @@
                     <div class="single_brand" id="brand-slide">
 
                         <!-- scl-a -->
+                        @foreach($schools as $school)
                         <div class="single_brands">
-                            <img src="{{ asset('front') }}/assets/img/scl-a.png" class="img-fluid" alt="" />
+                            <img src="{{ getImageUrl($school->logo) }}" class="img-fluid" alt="" />
                         </div>
-
-                        <!-- scl-b -->
-                        <div class="single_brands">
-                            <img src="{{ asset('front') }}/assets/img/scl-b.png" class="img-fluid" alt="" />
-                        </div>
-
-                        <!-- scl-c -->
-                        <div class="single_brands">
-                            <img src="{{ asset('front') }}/assets/img/scl-c.png" class="img-fluid" alt="" />
-                        </div>
-
-                        <!-- scl-d -->
-                        <div class="single_brands">
-                            <img src="{{ asset('front') }}/assets/img/scl-d.png" class="img-fluid" alt="" />
-                        </div>
-
-                        <!-- scl-e -->
-                        <div class="single_brands">
-                            <img src="{{ asset('front') }}/assets/img/scl-e.png" class="img-fluid" alt="" />
-                        </div>
-
-                        <!-- scl-f -->
-                        <div class="single_brands">
-                            <img src="{{ asset('front') }}/assets/img/scl-f.png" class="img-fluid" alt="" />
-                        </div>
-
-                        <!-- scl-g -->
-                        <div class="single_brands">
-                            <img src="{{ asset('front') }}/assets/img/scl-g.png" class="img-fluid" alt="" />
-                        </div>
-
+                        @endforeach
                     </div>
                 </div>
             </div>

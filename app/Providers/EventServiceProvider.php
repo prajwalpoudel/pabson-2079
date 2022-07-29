@@ -2,6 +2,12 @@
 
 namespace App\Providers;
 
+use App\Entities\School;
+use App\Entities\User;
+use App\Events\AccountVerified;
+use App\Listeners\SendAccountVerifiedEmailNotification;
+use App\Observers\SchoolObserver;
+use App\Observers\UserObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -18,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        AccountVerified::Class => [
+            SendAccountVerifiedEmailNotification::class
+        ]
     ];
 
     /**
@@ -29,6 +38,8 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        //
+        User::observe(UserObserver::class);
+        School::observe(SchoolObserver::class);
+
     }
 }
